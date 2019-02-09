@@ -132,14 +132,14 @@
  - для перестановки символов строки в обратном порядке можно воспользоваться методом reverse(), который находится в классе StringBuilder;
  - в классе String есть методы для преобразования всей строки в верхний и нижний регистр.
  
-    public static boolean isPalindrome(String text) {
-        String replaced = text.toLowerCase().replaceAll("[^A-Za-z0-9]", "");
-            String reversed = new StringBuffer(replaced).reverse().toString();
-            return reversed.equals(replaced);
-        }
-        public static void Main(String[] args) {
-            System.out.println(isPalindrome("Madam, I'm Adam!"));
-    }
+       public static boolean isPalindrome(String text) {
+           String replaced = text.toLowerCase().replaceAll("[^A-Za-z0-9]", "");
+               String reversed = new StringBuffer(replaced).reverse().toString();
+               return reversed.equals(replaced);
+           }
+           public static void Main(String[] args) {
+               System.out.println(isPalindrome("Madam, I'm Adam!"));
+       }
     
 2. 4 Управляющие конструкции: условные операторы и циклы
 
@@ -157,7 +157,7 @@
     for (int i = 0; i < 100; i++) {
         // тело цикла
     }
-и
+    
     for (int i = 0; i < 100; ) {
         // тело цикла
         i++;
