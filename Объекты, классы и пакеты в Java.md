@@ -219,37 +219,36 @@ Direction, направление взгляда робота,  — это пе�
     
 Напишите класс AsciiCharSequence, реализующий компактное хранение последовательности ASCII-символов (их коды влезают в один байт) в массиве байт. По сравнению с классом String, хранящим каждый символ как char, AsciiCharSequence будет занимать в два раза меньше памяти.
 Класс AsciiCharSequence должен:
- - реализовывать интерфейс java.lang.CharSequence;
- - иметь конструктор, принимающий массив байт;
- - определять методы length(), charAt(), subSequence() и toString().
+1. реализовывать интерфейс java.lang.CharSequence;
+2. иметь конструктор, принимающий массив байт;
+3. определять методы length(), charAt(), subSequence() и toString().
 
-     public class AsciiCharSequence implements CharSequence {
-         private byte[] content;
-         public AsciiCharSequence(byte[] content) {
-             this.content = content;
-         }
-         public int length() {
-             return content.length;
-         }
-         public char charAt(int index) {
-             return (char)content[index];
-         }
-         public CharSequence subSequence(int start, int end) {
-             byte[] result = new byte[wnd-start];
-             for(int i = start; i < end; i++ ){
-                 result[i-start] = content[i];
-             }
-             return new AsciiCharSequence(result);
-         }
-         public String toString() {
-             StringBuilder result = new StringBuilder(content.length);
-             for(int i = 0; i < content.length; i++ ){
-                 result.append((char)content[i]);
-             }
-             return result.toString();
-         }
-     }
-     
+    public class AsciiCharSequence implements CharSequence {
+        private byte[] content;
+        public AsciiCharSequence(byte[] content) {
+            this.content = content;
+        }
+        public int length() {
+            return content.length;
+        }
+        public char charAt(int index) {
+            return (char)content[index];
+        }
+        public CharSequence subSequence(int start, int end) {
+            byte[] result = new byte[end-start];
+            for(int i = start; i < end; i++ ){
+                result[i-start] = content[i];
+            }
+            return new AsciiCharSequence(result);
+        }
+        public String toString() {
+            StringBuilder result = new StringBuilder(content.length);
+            for(int i = 0; i < content.length; i++ ){
+                result.append((char)content[i]);
+            }
+            return result.toString();
+        }
+    }
 
 Пришло время попробовать реализовать иерархию классов определенного вида и решить конкретную задачу.
 Представим, вы делаете систему фильтрации комментариев на каком-то веб-портале, будь то новости, видео-хостинг, а может даже для системы онлайн-обучения :)
