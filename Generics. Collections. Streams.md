@@ -84,7 +84,7 @@
 
         // вариант 5
         public <X, Y> void ifPresent(BiConsumer<X, Y> consumer) { ... }
-}
+        }
 
  - вариант 1
  - вариант 2 (+)
