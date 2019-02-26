@@ -218,6 +218,13 @@ assert предикат: сообщение;
     assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
     assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
 
+В конечном итоге, вам нужно реализовать классы MailService, MailMessage и Salary (и, вероятно, вспомогательные классы и интерфейсы) и отправить их код в форму. Все классы должны быть публичными и статическими (ваши классы подставятся во внешний класс для тестирования).
+В идеологически правильном решении не должно фигурировать ни одного оператора instanceof.
+В классе для тестирования объявлены следующие импорты:
+
+    import java.util.*;
+    import java.util.function.*;
+
 Решение:
 
     public interface IMessage<T> {
@@ -301,10 +308,3 @@ assert предикат: сообщение;
             return mailBox;
         }
     }
-
-В конечном итоге, вам нужно реализовать классы MailService, MailMessage и Salary (и, вероятно, вспомогательные классы и интерфейсы) и отправить их код в форму. Все классы должны быть публичными и статическими (ваши классы подставятся во внешний класс для тестирования).
-В идеологически правильном решении не должно фигурировать ни одного оператора instanceof.
-В классе для тестирования объявлены следующие импорты:
-
-    import java.util.*;
-    import java.util.function.*;
